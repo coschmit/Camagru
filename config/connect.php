@@ -6,6 +6,6 @@ try
 	$DB->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 }
  catch (PDOException $e) {
-    echo "SkuSku ça ne marche pas";
+    echo $e->getMessage();
 }
  ?>
