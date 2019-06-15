@@ -1,0 +1,40 @@
+#gal_gal
+{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+
+#gal_gal #com
+{
+  text-align: center;
+	display: flex;
+	flex-direction: column;
+	margin: 40px;
+	border: 1px solid pink;
+}
+
+
+
+#button_coment
+{
+
+	color: gold;
+	text-decoration: none;
+}
+#button_coment:hover
+{
+  text-decoration: underline;
+
+}
+
+#pageact
+{
+	color: red;
+	margin-bottom: 150px;
+}
+#numb_page
+{
+	color: blue;
+	text-decoration: none;
+}

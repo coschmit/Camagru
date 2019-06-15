@@ -3,11 +3,11 @@ $data = $_POST;
  ?>
 <!DOCTYPE html>
   <head>
-    <title>Registration</title>
+    <title>Register</title>
     <link rel="stylesheet" type="text/css" href="style.css">
   </head>
   <header id="header">
-    <h1>Minimalism Style</h1>
+   <a href="index.php"> <h1>Register</h1></a>
   </header>
   <body>
 <form  action="signup.php" method="POST">
@@ -16,10 +16,6 @@ $data = $_POST;
       <label for="username">Username</label>
       <br>
       <input type="text" name="username"  id="username" placeholder="your login" required value="<?php echo @$data['username']; ?>">
-      <br>
-      <label for="phone">Phone</label>
-      <br>
-      <input type="text" name="phone" id="phone"  placeholder="1234567890" required value="<?php echo @$data['phone']; ?>">
       <br>
       <label for="email">Email</label>
       <br>
@@ -42,14 +38,6 @@ $data = $_POST;
           $reg = '/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/';
           $a = preg_match($reg,$value);
           return($a);
-        }
-        function PhoneValid($value)
-        {
-          $reg = '/[0-9]{10}/';
-          if (strlen($value) != 10 ) {
-            return false;
-          }
-          return (preg_match($reg,$value));
         }
         function ValidPassword($value)
         {
@@ -95,9 +83,6 @@ $data = $_POST;
            if (($data['email'] != '')  && !EmailValid($data['email'])) {
              $errors[] = "Email is not valid";
            }
-           if ( ($data['phone'] != '') && !PhoneValid($data['phone'])) {
-             $errors[] = "Phone is not valid";
-           }
            if ( ($data['re_password'] == $data['password'])  &&  !ValidPassword($data['password'])) {
               $errors[] = "Password is not valid";
               $errors[] = "Use at least 6 characters";
@@ -113,13 +98,12 @@ $data = $_POST;
            }
            if (empty($errors)) {
               $username = $data['username'];
-              $phone = $data['phone'];
               $email = $data['email'];
               $password = $data['password'];
               $password = hash('md5', $password);
              //require_once '../config/conect.php';
              //register
-             $reqest = "INSERT INTO `users` (`username`, `phone`, `email`, `password`) VALUES ('$username', '$phone', '$email', '$password');";
+             $reqest = "INSERT INTO `users` (`username`, `email`, `password`) VALUES ('$username', '$email', '$password');";
              $pdo->prepare($reqest)->execute();
              //отправка письма на почту
              mail($email, 'Camagru', 'for register come here ! => http://localhost:8888/Main/aftermail.php', 'From : admin@camag.com');
