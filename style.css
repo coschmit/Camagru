@@ -16,6 +16,7 @@ body{
     font-size: 25px;
     border-color: black;
     margin-top: 5px;
+    border-radius: 15px;
   }
   label{
       
@@ -25,13 +26,14 @@ body{
   #forma{
     background-color: rgb(34, 35, 49);
     padding-top: 20px;
-    width: 500px;
+    width: 450px;
     height: 500px;
     border: 1px white solid;
     margin: 0 auto;
     text-align: center;
     color: white;
     transition: all 0.5s;
+    border-radius: 25px;
   }
 
   #forma:hover{
@@ -63,7 +65,8 @@ body{
   }
 
   #errorMessage{
-    color: red;
+    color:rgba(100, 36, 84, 0.533);
+    font-size: 15px;
     margin-top: 15px;
   }
   span{
@@ -89,6 +92,14 @@ body{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
   }
   
+input:focus {
+    outline-color : blue ;
+    outline-width: 7px;
+    }
+    
+
   H1:hover {
   color: rgb(53, 41, 119);
   }
+
+  button:focus{ outline-width: 0px;}

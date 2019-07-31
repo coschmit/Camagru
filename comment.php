@@ -34,7 +34,7 @@ try
     $email = $mail->fetch();
   //  header("Refresh:1");
     mail($email['email'], 'New comment !!', 'yeep !! Come to Camagru and check new comments!!', 'From : admin@camag.com');
-    //mail($email, 'Camagru', 'for register come here ! => http://localhost:8888/Main/aftermail.php', 'From : admin@camag.com');
+    //mail($email, 'Camagru', 'for register come here ! => http://127.0.0.1:8888/Main/aftermail.php', 'From : admin@camag.com');
       header('Location: '.$_SERVER['REQUEST_URI']);
 }
 ?>

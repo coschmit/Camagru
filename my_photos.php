@@ -59,7 +59,7 @@ try
            ?>
            <div id="gal_gal">
     		<div id="com">
-    			<img src="<?php echo htmlspecialchars($data['photo_path']); ?>" width="320" height="240"/>
+    			<a href="comment.php?photo=<?php echo $data['id']; ?>"><img src="<?php echo htmlspecialchars($data['photo_path']); ?>" width="320" height="240"/></a>
           <br>
 
     				<a href="comment.php?photo=<?php echo $data['id']; ?>" id="button_coment">Comment</a>

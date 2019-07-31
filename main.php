@@ -40,7 +40,7 @@ session_start();
             }
             else
     	       $page = 1;
-          $first_val = ($page - 1) * $photo_on_page;
+          $first_val = ($page - 1) * $photo_on_page; 
           $request = $pdo->query("SELECT * FROM photo ORDER BY photo_date DESC LIMIT $first_val, $photo_on_page");
           while ($data = $request->fetch()) {
        ?>
@@ -55,7 +55,7 @@ session_start();
 		</div>
 	</div>
             <?php
-}
+          }
                 echo '<p id="pageact" align="center">Page : ';
                 for ($i = 1; $i <= $pages_number; $i++)
                 {

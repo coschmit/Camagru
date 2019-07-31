@@ -9,23 +9,35 @@
         body{
           font-family: helvetica, sans-serif;
           font-size: 150%;
+          background-color: rgb(24, 24, 24);
         }
         input{
           height: 25px;
-          padding: 5px;
-          font-size: 25px;
-          border-color: black;
-          margin-top: 15px;
-          margin-bottom: 15px;
+              padding: 15px;
+              text-align: center;
+              font-size: 25px;
+              border-color: black;
+              margin-top: 5px;
+              border-radius: 15px;
         }
         label{
         }
         #forma{
-          width: 500px;
-          height: 600px;
-          margin: 0 auto;
-          text-align: center;
+          background-color: rgb(34, 35, 49);
+    padding-top: 20px;
+    width: 450px;
+    height: 400px;
+    border: 1px white solid;
+    margin: 0 auto;
+    text-align: center;
+    color: white;
+    transition: all 0.5s;
+    border-radius: 15px;
         }
+
+        #forma:hover{
+    box-shadow: 0 5px 15px 9px rgb(53, 41, 119);
+    }
         #content{
           margin-top: 125px;
         }
@@ -44,6 +56,7 @@
         #forget{
           position: relative;
           bottom: -50px;
+          color:white;
         }
         H1 {
     display: inline-block;
@@ -55,12 +68,36 @@
     transition: all 1s;
     }
     H1:hover {
-      color: Gold;
+      color: rgb(53, 41, 119);
+      }
+      input:focus {
+      outline-color : blue ;
+      outline-width: 7px;
+}
+
+      #button {
+        margin-top: 30px;
+    background-color: white;
+    border-radius: 40px;
+    width: 150px;
+    font-size: 14px;
+    height: 50px;
+    transition: all 0.4s
+      }    
+
+      #button:hover{
+        transition: all 0.4s;
+    cursor: pointer;
+    background: black;
+    color: white;
+    height: 60px;
+    width: 170px;
+    font-size: 17px;
       }
       </style>
     </head>
     <header id="header">
-      <h1>Minimalism Style</h1>
+    <a href="index.php"><h1>Login</h1></a>
     </header>
     <body>
       <form  action="login.php" method="POST">
@@ -124,7 +161,7 @@
       if (isset($data['submit'])) {
         $username = $data['username'];
         $password = $data['password'];
-        $password = hash('md5', $password);
+        $password = hash('whirlpool', $password);
         $account = $pdo->query('SELECT username FROM users');
         if ((checkUSERNAME($account, $username) == false) || $username == '') {
           $errors[] = "Username entered wrong";

@@ -29,7 +29,7 @@ $data = $_POST;
       <br>
       <input type="password" name="re_password" id="re_password" required placeholder="must be strong">
       <br>
-      <button id="Create-acc" type="submit" name="submit" >Create Account</button>
+      <button id="Create-acc" type="submit" name="submit">Create Account</button>
       <div id="errorMessage">
         <?PHP
         session_start();
@@ -44,7 +44,7 @@ $data = $_POST;
           $reg = '/(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/';
           return (preg_match($reg,$value));
         }
-        //require_once '../config/setup.php';
+        //require_once 'config/setup.php';
         try
          {
           $pdo = new PDO('mysql:host=127.0.0.1;dbname=camagru;', 'root', 'pass');
@@ -100,13 +100,12 @@ $data = $_POST;
               $username = $data['username'];
               $email = $data['email'];
               $password = $data['password'];
-              $password = hash('md5', $password);
-             //require_once '../config/conect.php';
+              $password = hash('whirlpool', $password);
+             //require_once 'config/conect.php';
              //register
              $reqest = "INSERT INTO `users` (`username`, `email`, `password`) VALUES ('$username', '$email', '$password');";
              $pdo->prepare($reqest)->execute();
-             //отправка письма на почту
-             mail($email, 'Camagru', 'for register come here ! => http://localhost:8888/Main/aftermail.php', 'From : admin@camag.com');
+             mail('colinschmitt47@gmail.com', 'Camagru', 'Prout les freres c\'est juste un test');
                echo "Email with instruction was sent to your email";
                header("refresh:10;index.php");
                exit;

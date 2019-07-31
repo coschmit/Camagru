@@ -1,8 +1,8 @@
 <header>
     <!-- our main logo -->
     <a id="logo" href="main.php">
-        <img src="img/main.png" width="55" height="55" style="margin-top:-23px;" alt="Logo">
-        <span>CAMaGrU</span>
+        <img src="img/camera.png" width="55" height="55" style="margin-top:-23px;margin-left:10px" alt="Logo">
+        <span>CAMAGRU</span>
     </a>
     <!-- main navigation links -->
     <nav id="nav">

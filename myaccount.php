@@ -51,8 +51,9 @@ if (!$_SESSION[login])
       // echo $_SESSION[login];
        ?>
        <form  action="myaccount.php" method="POST">
-       <p>Username email:  <?php echo $mail;?></p>
-         <p>new email: <input type="text" name="newemail" value=""></p>
+       <p style="color: white;">username:  <?php echo $login;?></p>
+       <p style="color: white;">email:  <?php echo $mail;?></p>
+         <p style="color: white;">new email: <input type="text" name="newemail" style="color: white;" value=""></p>
        <button type="submit" name="change">Change</button>
      </form>
      <?php

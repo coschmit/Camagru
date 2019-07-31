@@ -11,7 +11,9 @@
 	display: flex;
 	flex-direction: column;
 	margin: 40px;
-	border: 1px solid pink;
+	border: 1px solid rgba(38, 82, 74, 0.753);
+	transition: 0.4s ;
+
 }
 
 
@@ -19,7 +21,7 @@
 #button_coment
 {
 
-	color: gold;
+	color: white;
 	text-decoration: none;
 }
 #button_coment:hover
@@ -30,11 +32,17 @@
 
 #pageact
 {
-	color: red;
+	color: rgba(87, 112, 108, 0.753);
 	margin-bottom: 150px;
 }
 #numb_page
 {
 	color: blue;
 	text-decoration: none;
+}
+
+#com:hover{
+	box-shadow: 0px 0px 15px 4px rgba(83, 148, 137, 0.753);
+	transition: 0.4s ;
+	transform: scale(1.1);
 }

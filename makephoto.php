@@ -22,13 +22,19 @@ if (!$_SESSION[login])
         position: relative;
         left: 33%;
         width: 150px;
-        height: 50px;
+		height: 50px;
+		object-fit: contain;
+		overflow: hidden;
       }
 			#frames{
+				color: #d6d6d6;
 				float: left;
 				border: 1px black solid;
 				width: 70%;
 				height: 150px;
+				overflow: hidden;
+				object-fit: contain;
+
 			}
 			#photo{
 				text-align: center;
@@ -94,7 +100,7 @@ if (!$_SESSION[login])
 		</div>
     <div class="video">
       <video id="vidDisplay" autoplay="true">
-        NOONONOOOO
+        
       </video>
 
 			<br>
@@ -124,7 +130,7 @@ if (!$_SESSION[login])
 				 <img id="output" style="display:none">
 	</form>
 				 <br>
-		<canvas id="photo" width=600 height=500>
+		<canvas id="photo" width=600 height=500 overflow: hidden;object-fit: contain;>
 		</canvas>
 
     <script type="text/javascript">
