@@ -26,12 +26,12 @@ if (!$_SESSION[login])
 		object-fit: contain;
 		overflow: hidden;
       }
-			#frames{
+			#cadres{
 				color: #d6d6d6;
 				float: left;
 				border: 1px black solid;
-				width: 70%;
-				height: 150px;
+				width: 100px;
+				height: 400px;
 				overflow: hidden;
 				object-fit: contain;
 
@@ -39,22 +39,22 @@ if (!$_SESSION[login])
 			#photo{
 				text-align: center;
 			}
-		#snow1
+		#gliitch1
 			{
 				float: left;
 				margin-right: 20px;
 			}
-			#batman2
+			#ballon2
 				{
 					float: left;
 					margin-right: 20px;
 				}
-				#frame3
+				#cadre3
 					{
 						float: left;
 						margin-right: 20px;
 					}
-					#flower4
+					#moon4
 						{
 							float: left;
 							margin-right: 20px;
@@ -66,35 +66,35 @@ if (!$_SESSION[login])
 
   <body>
 
-		<div id="frames">
+		<div id="cadres">
 			<p>Select Efect:</p>
 
-<div id="snow1">
-  <input type="radio" id="snow" name="chose" value="snow"
+<div id="gliitch1">
+  <input type="radio" id="gliitch" name="chose" value="gliitch"
          checked>
-  <label for="snow">snow</label>
+  <label for="gliitch">gliitch</label>
 	<br>
-	<img src="filters/snow.png" width="50" height="50" alt="">
+	<img src="filters/gliitch.png" width="50" height="50" alt="">
 </div>
 
-<div id="batman2">
-  <input type="radio" id="batman" name="chose" value="batman">
-  <label for="batman">batman</label>
+<div id="ballon2">
+  <input type="radio" id="ballon" name="chose" value="ballon">
+  <label for="ballon">ballon</label>
 	<br>
-	<img src="filters/batman.png" width="50" height="50" alt="">
+	<img src="filters/ballon.png" width="50" height="50" alt="">
 </div>
 
-<div id="frame3">
-  <input type="radio" id="frame" name="chose" value="frame">
-  <label for="frame">frame</label>
+<div id="cadre3">
+  <input type="radio" id="cadre" name="chose" value="cadre">
+  <label for="cadre">cadre</label>
 	<br>
-	<img src="filters/frame.png" width="50" height="50" alt="">
+	<img src="filters/cadre.png" width="50" height="50" alt="">
 </div>
-<div id="flower4">
-  <input type="radio" id="flower" name="chose" value="flower">
-  <label for="flower">flower</label>
+<div id="moon4">
+  <input type="radio" id="moon" name="chose" value="moon">
+  <label for="moon">moon</label>
 	<br>
-	<img src="filters/flower.png" width="50" height="50" alt="">
+	<img src="filters/moon.png" width="50" height="50" alt="">
 </div>
 
 		</div>
@@ -165,14 +165,14 @@ if (!$_SESSION[login])
 	mix.addEventListener('click', () =>
 	{
 		var imageData = canvas.toDataURL("image/png");
-		if (document.getElementById('snow').checked == true)
-			var filter = "snow";
-		else if (document.getElementById('batman').checked == true)
-			var filter = "batman";
-		else if (document.getElementById('frame').checked == true)
-			var filter = "frame";
-		else if (document.getElementById('flower').checked == true)
-				var filter = "flower";
+		if (document.getElementById('gliitch').checked == true)
+			var filter = "gliitch";
+		else if (document.getElementById('ballon').checked == true)
+			var filter = "ballon";
+		else if (document.getElementById('cadre').checked == true)
+			var filter = "cadre";
+		else if (document.getElementById('moon').checked == true)
+				var filter = "moon";
 		else
 		{
 			alert ('Please select a filter');
@@ -190,14 +190,14 @@ if (!$_SESSION[login])
 		// //data = data.replace(/^data:image\/(png|jpg);base64,/, "");
     //
 		// window.location = "makephoto.php?msg=" + data;
-		if (document.getElementById('snow').checked == true)
-      var filter = "snow";
-    else if (document.getElementById('batman').checked == true)
-      var filter = "batman";
-    else if (document.getElementById('frame').checked == true)
-      var filter = "frame";
-		else if (document.getElementById('flower').checked == true)
-				var filter = "flower";
+		if (document.getElementById('gliitch').checked == true)
+      var filter = "gliitch";
+    else if (document.getElementById('ballon').checked == true)
+      var filter = "ballon";
+    else if (document.getElementById('cadre').checked == true)
+      var filter = "cadre";
+		else if (document.getElementById('moon').checked == true)
+				var filter = "moon";
     else
     {
       alert ('Please select a filter');
@@ -230,7 +230,7 @@ if (!$_SESSION[login])
 						 while (file_exists('images/'.$_SESSION[login].$i.'.png') === TRUE)
 							 $i++;
 						 file_put_contents('images/'.$_SESSION[login].$i.'.png', $encodeData);
-						 //create photo with frames
+						 //create photo with cadres
 						 $source = imagecreatefrompng('filters/'.$filter.'.png');
 						 $dest = imagecreatefrompng('images/'.$_SESSION[login].$i.'.png');
 						 $width = imagesx($source);

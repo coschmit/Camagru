@@ -48,36 +48,40 @@ try
       text-align: center;
     }
     button{
-      background-color: white;
-      border-color: gold;
+      background-color: red;
     }
     #comment_input
     {
-      width: 600px;
-      height: 150px;
+		border-radius:40px;
+		margin-top: 20px;
+		margin-bottom:20px;
+      width: 400px;
+      height: 50px;
     }
     #com_text
     {
-	background-color: #ff6650;
+		margin: auto;
+		width: 600px;
+	background-color: #323942;
 	color: white;
 	word-wrap: break-word;
 	overflow: auto;
   }
 #who
 {
-	border-bottom: 1px solid red;
-	border-top: 1px solid red;
+	border-bottom: 1px solid white;
+	border-top: 1px solid white;
 	padding-bottom: 5px;
 	padding-top: 5px;
 }
 h2
 {
+	margin: 40px auto ;
+	width: 500px;
 	font-size: 35px;
-	text-decoration: underline;
+	border: 4px solid white;
 }
-#delbutton{
-	background-color: red;
-}
+
     </style>
 </head>
     <!-- the header -->
@@ -119,7 +123,7 @@ h2
 			</form>
     </div>
     <div id="com_text">
-			<h2>Comments</h2>
+			<h2>COMMENTS</h2>
 		<?php
 		$reqest->closeCursor();
 		$reqest = $pdo->prepare('SELECT author, comment, date_com FROM comments WHERE id_photo = ? ORDER BY date_com');
