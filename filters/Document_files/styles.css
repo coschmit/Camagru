@@ -1,0 +1,89 @@
+body {
+    margin: 0;
+    display: block;
+    text-transform: none;
+    text-decoration: none;  
+}
+
+@media only screen and (max-width: 1460px){
+    #canvas {
+        margin: 80px;
+    }
+}
+
+#canvas {
+    border: 2px solid rgba(0,0,0,.1);
+    background-color: #fff;
+    margin-top: 25px !important;
+    padding-top: 25px;
+    padding: 100px 100px 0;
+}
+
+div {
+    display: block;
+}
+
+header {
+    padding-top: 0px !important;
+    position: relative;
+    display: block;
+}
+
+header #upper-logo {
+    width: 100%;
+    text-align: center;
+    line-height: 0;
+    float: left;
+}
+
+header h1.logo {
+    text-transform: none;
+    text-decoration: none;
+    font-style: normal;
+    font-size: 60px;
+    font-weight: 700;
+    font-family: 'proxima-nova', arial;
+    line-height: 1.6em;
+}
+
+header .logo {
+    margin: 0;
+    display: inline-block;
+    width: 100%;
+}
+
+
+
+
+
+.site-info {
+    overflow: hidden;
+    text-transform: uppercase;
+    text-align: center;
+    margin: 0 5%;
+    color: rgba(0,0,0,.3);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    display: block;
+}
+
+.site-info .site-city {
+    width: 33.3333%;
+    display: inline-block;
+float: left;    text-align: left;
+}
+
+.site-info .site-quote {
+    width: 33.3333%;
+    display: inline-block;
+    text-align: center;
+}
+
+.site-info .site-job {
+    width: 33.3333%;
+    display: inline-block;
+    text-align: right;
+    float: right;
+}
+

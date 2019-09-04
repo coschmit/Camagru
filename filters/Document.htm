@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<!-- saved from url=(0022)http://127.0.0.1:5500/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>Document</title>
+    <link href="./Document_files/css" rel="stylesheet">
+    <link rel="stylesheet" href="./Document_files/bootstrap.min.css">
+    <script src="./Document_files/jquery-3.3.1.slim.min.js"></script>
+    <script src="./Document_files/popper.min.js"></script>
+    <script src="./Document_files/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="./Document_files/styles.css">
+</head>
+<body>
+  <div id="canvas">
+    <header id="header" class="clear">
+        <div id="upper-logo">
+            <h1 class="logo">
+                <a href="http://127.0.0.1:5500/">Colin</a>
+            </h1>
+        </div>
+        <div class="site-info">
+            <div class="site-city">Paris</div>
+            <div class="site-quote">Live, Breathe, Live</div>
+            <div class="site-job">Photographer</div>
+        </div>
+        <div id="topNav">
+          <nav class="main-nav">
+            <ul>
+              <li class="folder-collection folder">
+                <a href="http://127.0.0.1:5500/architecture/">Photography</a>
+                <div class="subnav">
+                  <ul>
+                    <li class="page-collection">
+                      <a href="http://127.0.0.1:5500/architecture/">Architecture</a>
+                    </li>
+                    <li class="page-collection">
+                      <a href="http://127.0.0.1:5500/analog/">Analog</a>
+                    </li>
+                    <li class="page-collection">
+                      <a href="http://127.0.0.1:5500/conccerts">Concerts</a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li class="index-collection folder">
+                <a href="http://127.0.0.1:5500/work">Work</a>
+              </li>
+              <li class="page-collection">
+                <a href="http://127.0.0.1:5500/videos">Videos</a>
+              </li>
+              <li class="page-collection">
+                <a href="http://127.0.0.1:5500/contact">Contact</a>
+              </li>
+            </ul>
+            <div class="page-divider"></div>
+          </nav>
+        </div>
+    </header>
+    </div>
+<!-- Code injected by live-server -->
+<script type="text/javascript">
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+</body></html>

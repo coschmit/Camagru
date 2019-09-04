@@ -23,7 +23,7 @@ $data = $_POST;
       <br>
       <label for="password">Password</label>
       <br>
-      <input type="password" name="password" id="password" required placeholder="must be strong">
+      <input type="password" name="password" id="password" required placeholder="must be strong" >
       <br>
       <label for="re-password">Confirm Password</label>
       <br>
@@ -105,7 +105,7 @@ $data = $_POST;
              //register
              $reqest = "INSERT INTO `users` (`username`, `email`, `password`) VALUES ('$username', '$email', '$password');";
              $pdo->prepare($reqest)->execute();
-             mail('colinschmitt47@gmail.com', 'Camagru', 'Prout les freres c\'est juste un test');
+             mail($email, 'Camagru', 'for register come here ! => http://127.0.0.1:8888/Main/aftermail.php', 'From : admin@camag.com');
                echo "Email with instruction was sent to your email";
                header("refresh:10;index.php");
                exit;
