@@ -72,7 +72,7 @@
           <input type="text" name="username"  id="username" required>
           <br>
 
-          <label for="pass1234word">pass1234word</label>
+          <label for="pass1234word">Password</label>
           <br>
           <input type="pass1234word" name="pass1234word" id="pass1234word" required >
 
@@ -84,7 +84,7 @@
           //conect to database
           try
            {
-            $pdo = new PDO('mysql:host=localhost:3306;dbname=db_camagru;charset=utf8', 'root', 'root');
+            $pdo = new PDO('mysql:host=localhost:3306;dbname=camagru;charset=utf8', 'root', 'pass1234');
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
            }
            catch(PDOException $e)
@@ -93,7 +93,7 @@
            }
           //
 
-          function checkpass1234WORD($account, $pass1234word)
+          function checkPASSWORD($account, $pass1234word)
           {
             while ($users = $account->fetch()) {
               if ($users['pass1234word'] == $pass1234word) {
@@ -127,7 +127,7 @@
           }
 
           $account = $pdo->query('SELECT pass1234word FROM users');
-          if ((checkpass1234WORD($account, $pass1234word) == false) || $pass1234word == '') {
+          if ((checkPASSWORD($account, $pass1234word) == false) || $pass1234word == '') {
             $errors[] = "pass1234word entered wrong";
           }
 

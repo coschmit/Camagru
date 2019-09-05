@@ -1,5 +1,4 @@
 <?php
-session_start();
 $data = $_POST;
  ?>
 <!DOCTYPE html>
@@ -22,24 +21,25 @@ $data = $_POST;
       <br>
       <input type="text" name="email" id="email" placeholder="yourname@gmail.com" required  value="<?php echo @$data['email']; ?>">
       <br>
-      <label for="pass1234word">pass1234word</label>
+      <label for="password">Password</label>
       <br>
-      <input type="pass1234word" name="pass1234word" id="pass1234word" required placeholder="must be strong" >
+      <input type="password" name="password" id="password" required placeholder="must be strong" >
       <br>
-      <label for="re-pass1234word">Confirm pass1234word</label>
+      <label for="re-password">Confirm Password</label>
       <br>
-      <input type="pass1234word" name="re_pass1234word" id="re_pass1234word" required placeholder="must be strong">
+      <input type="password" name="re_password" id="re_password" required placeholder="must be strong">
       <br>
       <button id="Create-acc" type="submit" name="submit">Create Account</button>
       <div id="errorMessage">
         <?PHP
+        session_start();
         function EmailValid($value)
         {
           $reg = '/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/';
           $a = preg_match($reg,$value);
           return($a);
         }
-        function Validpass1234word($value)
+        function ValidPassword($value)
         {
           $reg = '/(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/';
           return (preg_match($reg,$value));
@@ -77,14 +77,14 @@ $data = $_POST;
          if (isset($data['submit'])) {
            //register;
            $errors = array();
-           if ($data['re_pass1234word'] != $data['pass1234word']) {
-            $errors[] = "pass1234word doesnt match";
+           if ($data['re_password'] != $data['password']) {
+            $errors[] = "Password doesnt match";
            }
            if (($data['email'] != '')  && !EmailValid($data['email'])) {
              $errors[] = "Email is not valid";
            }
-           if ( ($data['re_pass1234word'] == $data['pass1234word'])  &&  !Validpass1234word($data['pass1234word'])) {
-              $errors[] = "pass1234word is not valid";
+           if ( ($data['re_password'] == $data['password'])  &&  !ValidPassword($data['password'])) {
+              $errors[] = "Password is not valid";
               $errors[] = "Use at least 6 characters";
               $errors[] = "With 1 lower, 1 uppercase and 1 number!";
            }
@@ -99,15 +99,17 @@ $data = $_POST;
            if (empty($errors)) {
               $username = $data['username'];
               $email = $data['email'];
-              $pass1234word = $data['pass1234word'];
-              $pass1234word = hash('whirlpool', $pass1234word);
+              $password = $data['password'];
+              $password = hash('whirlpool', $password);
              //require_once 'config/conect.php';
              //register
-             $reqest = "INSERT INTO `users` (`username`, `email`, `pass1234word`) VALUES ('$username', '$email', '$pass1234word');";
+             $reqest = "INSERT INTO `users` (`username`, `email`, `password`) VALUES ('$username', '$email', '$password');";
              $pdo->prepare($reqest)->execute();
-             mail($email, 'Camagru', 'for register come here ! => http://localhost:3306:8888/Main/aftermail.php', 'From : admin@camag.com');
+             mail($email, 'Camagru', 'for register come here ! => http://127.0.0.1:8888/Main/aftermail.php', 'From : admin@camag.com');
                echo "Email with instruction was sent to your email";
-               echo "<script>document.location.href='main.php'</script>";                exit;
+               header("refresh:10;index.php");
+               exit;
+             //
            }
            else
            { $i = 0;
