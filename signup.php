@@ -1,4 +1,5 @@
 <?php
+session_start();
 $data = $_POST;
  ?>
 <!DOCTYPE html>
@@ -32,7 +33,6 @@ $data = $_POST;
       <button id="Create-acc" type="submit" name="submit">Create Account</button>
       <div id="errorMessage">
         <?PHP
-        session_start();
         function EmailValid($value)
         {
           $reg = '/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/';
@@ -107,9 +107,7 @@ $data = $_POST;
              $pdo->prepare($reqest)->execute();
              mail($email, 'Camagru', 'for register come here ! => http://localhost:3306:8888/Main/aftermail.php', 'From : admin@camag.com');
                echo "Email with instruction was sent to your email";
-               header("refresh:10;index.php");
-               exit;
-             //
+               echo "<script>document.location.href='main.php'</script>";                exit;
            }
            else
            { $i = 0;

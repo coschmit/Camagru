@@ -1,4 +1,5 @@
-<?php $data = $_POST; ?>
+<?php  session_start();
+ $data = $_POST; ?>
   <!DOCTYPE html>
   <html>
     <head>
@@ -117,8 +118,6 @@
         <a id="forget" href="forgetpass1234word.php">Forget pass1234word?</a>
     <div id="error">
       <?php
- session_start();
-        //conect to database
         try
          {
           $pdo = new PDO('mysql:host=localhost:3306;dbname=camagru;', 'root', 'pass1234');
@@ -177,8 +176,7 @@
         if (empty($errors)) {
            echo "all good";
           $_SESSION[login] = $username;
-          header("Location: main.php");
-          exit;
+          echo "<script>document.location.href='main.php'</script>";           exit;
         }
         else
         { $i = 0;
