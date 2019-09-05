@@ -108,20 +108,20 @@
         <br>
         <input type="text" name="username"  id="username" required>
         <br>
-        <label for="password">Password</label>
+        <label for="pass1234word">pass1234word</label>
         <br>
-        <input type="password" name="password" id="password" required >
+        <input type="pass1234word" name="pass1234word" id="pass1234word" required >
         <br>
         <button id="button" type="submit" name="submit" >Login</button>
         <br>
-        <a id="forget" href="forgetpassword.php">Forget Password?</a>
+        <a id="forget" href="forgetpass1234word.php">Forget pass1234word?</a>
     <div id="error">
       <?php
  session_start();
         //conect to database
         try
          {
-          $pdo = new PDO('mysql:host=127.0.0.1;dbname=camagru;', 'root', 'pass');
+          $pdo = new PDO('mysql:host=localhost:3306;dbname=camagru;', 'root', 'pass1234');
           $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
          }
          catch(PDOException $e)
@@ -129,10 +129,10 @@
           die($e->getMessage());
          }
         //
-        function checkPASSWORD($account, $password)
+        function checkpass1234WORD($account, $pass1234word)
         {
           while ($users = $account->fetch()) {
-            if ($users['password'] == $password) {
+            if ($users['pass1234word'] == $pass1234word) {
               return true;
             }
           }
@@ -160,15 +160,15 @@
           $errors = array();
       if (isset($data['submit'])) {
         $username = $data['username'];
-        $password = $data['password'];
-        $password = hash('whirlpool', $password);
+        $pass1234word = $data['pass1234word'];
+        $pass1234word = hash('whirlpool', $pass1234word);
         $account = $pdo->query('SELECT username FROM users');
         if ((checkUSERNAME($account, $username) == false) || $username == '') {
           $errors[] = "Username entered wrong";
         }
-        $account = $pdo->query('SELECT password FROM users');
-        if ((checkPASSWORD($account, $password) == false) || $password == '') {
-          $errors[] = "password entered wrong";
+        $account = $pdo->query('SELECT pass1234word FROM users');
+        if ((checkpass1234WORD($account, $pass1234word) == false) || $pass1234word == '') {
+          $errors[] = "pass1234word entered wrong";
         }
         $account = $pdo->query('SELECT valid FROM users');
         if (!CheckVALID($account)) {

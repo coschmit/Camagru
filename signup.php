@@ -21,13 +21,13 @@ $data = $_POST;
       <br>
       <input type="text" name="email" id="email" placeholder="yourname@gmail.com" required  value="<?php echo @$data['email']; ?>">
       <br>
-      <label for="password">Password</label>
+      <label for="pass1234word">pass1234word</label>
       <br>
-      <input type="password" name="password" id="password" required placeholder="must be strong" >
+      <input type="pass1234word" name="pass1234word" id="pass1234word" required placeholder="must be strong" >
       <br>
-      <label for="re-password">Confirm Password</label>
+      <label for="re-pass1234word">Confirm pass1234word</label>
       <br>
-      <input type="password" name="re_password" id="re_password" required placeholder="must be strong">
+      <input type="pass1234word" name="re_pass1234word" id="re_pass1234word" required placeholder="must be strong">
       <br>
       <button id="Create-acc" type="submit" name="submit">Create Account</button>
       <div id="errorMessage">
@@ -39,7 +39,7 @@ $data = $_POST;
           $a = preg_match($reg,$value);
           return($a);
         }
-        function ValidPassword($value)
+        function Validpass1234word($value)
         {
           $reg = '/(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/';
           return (preg_match($reg,$value));
@@ -47,7 +47,7 @@ $data = $_POST;
         //require_once 'config/setup.php';
         try
          {
-          $pdo = new PDO('mysql:host=127.0.0.1;dbname=camagru;', 'root', 'pass');
+          $pdo = new PDO('mysql:host=localhost:3306;dbname=camagru;', 'root', 'pass1234');
           $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
          }
          catch(PDOException $e)
@@ -77,14 +77,14 @@ $data = $_POST;
          if (isset($data['submit'])) {
            //register;
            $errors = array();
-           if ($data['re_password'] != $data['password']) {
-            $errors[] = "Password doesnt match";
+           if ($data['re_pass1234word'] != $data['pass1234word']) {
+            $errors[] = "pass1234word doesnt match";
            }
            if (($data['email'] != '')  && !EmailValid($data['email'])) {
              $errors[] = "Email is not valid";
            }
-           if ( ($data['re_password'] == $data['password'])  &&  !ValidPassword($data['password'])) {
-              $errors[] = "Password is not valid";
+           if ( ($data['re_pass1234word'] == $data['pass1234word'])  &&  !Validpass1234word($data['pass1234word'])) {
+              $errors[] = "pass1234word is not valid";
               $errors[] = "Use at least 6 characters";
               $errors[] = "With 1 lower, 1 uppercase and 1 number!";
            }
@@ -99,13 +99,13 @@ $data = $_POST;
            if (empty($errors)) {
               $username = $data['username'];
               $email = $data['email'];
-              $password = $data['password'];
-              $password = hash('whirlpool', $password);
+              $pass1234word = $data['pass1234word'];
+              $pass1234word = hash('whirlpool', $pass1234word);
              //require_once 'config/conect.php';
              //register
-             $reqest = "INSERT INTO `users` (`username`, `email`, `password`) VALUES ('$username', '$email', '$password');";
+             $reqest = "INSERT INTO `users` (`username`, `email`, `pass1234word`) VALUES ('$username', '$email', '$pass1234word');";
              $pdo->prepare($reqest)->execute();
-             mail($email, 'Camagru', 'for register come here ! => http://127.0.0.1:8888/Main/aftermail.php', 'From : admin@camag.com');
+             mail($email, 'Camagru', 'for register come here ! => http://localhost:3306:8888/Main/aftermail.php', 'From : admin@camag.com');
                echo "Email with instruction was sent to your email";
                header("refresh:10;index.php");
                exit;

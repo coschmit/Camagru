@@ -10,7 +10,7 @@ if (!$_SESSION[login])
 <?php
 try
  {
-  $pdo = new PDO('mysql:host=127.0.0.1;dbname=camagru;', 'root', 'pass');
+  $pdo = new PDO('mysql:host=localhost:3306;dbname=camagru;', 'root', 'pass1234');
   $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
  }
  catch(PDOException $e)

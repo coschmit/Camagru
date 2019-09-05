@@ -2,7 +2,7 @@
 require 'database.php';
 try
 {
-	$DB = new PDO('mysql:host=127.0.0.1;', 'root', 'pass');
+	$DB = new PDO('mysql:host=localhost:3306;', 'root', 'pass1234');
 	$DB->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 }
  catch (PDOException $e) {
@@ -13,7 +13,7 @@ $DB->prepare($reqest)->execute();
 require('connect.php');
 $reqest = "USE camagru;";
 $DB->prepare($reqest)->execute();
-$reqest = "CREATE TABLE IF NOT EXISTS `users` ( `user_id` INT NOT NULL AUTO_INCREMENT , `username` VARCHAR(255) NOT NULL , `email` VARCHAR(255) NOT NULL , `password` VARCHAR(255) NOT NULL , `valid` INT NOT NULL DEFAULT 0, PRIMARY KEY (`user_id`))";
+$reqest = "CREATE TABLE IF NOT EXISTS `users` ( `user_id` INT NOT NULL AUTO_INCREMENT , `username` VARCHAR(255) NOT NULL , `email` VARCHAR(255) NOT NULL , `pass1234word` VARCHAR(255) NOT NULL , `valid` INT NOT NULL DEFAULT 0, PRIMARY KEY (`user_id`))";
 	 $DB->prepare($reqest)->execute();
 	 $reqest = "CREATE TABLE IF NOT EXISTS photo (
 	id int NOT NULL AUTO_INCREMENT,

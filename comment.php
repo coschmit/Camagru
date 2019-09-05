@@ -10,7 +10,7 @@ $login = $_SESSION[login];
 //echo $login;
 try
  {
-  $pdo = new PDO('mysql:host=127.0.0.1;dbname=camagru;', 'root', 'pass');
+  $pdo = new PDO('mysql:host=localhost:3306;dbname=camagru;', 'root', 'pass1234');
   $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
  }
  catch(PDOException $e)
@@ -34,7 +34,7 @@ try
     $email = $mail->fetch();
   //  header("Refresh:1");
     mail($email['email'], 'New comment !!', 'yeep !! Come to Camagru and check new comments!!', 'From : admin@camag.com');
-    //mail($email, 'Camagru', 'for register come here ! => http://127.0.0.1:8888/Main/aftermail.php', 'From : admin@camag.com');
+    //mail($email, 'Camagru', 'for register come here ! => http://localhost:3306:8888/Main/aftermail.php', 'From : admin@camag.com');
       header('Location: '.$_SERVER['REQUEST_URI']);
 }
 ?>
