@@ -45,12 +45,12 @@ if ($_SESSION[login])
         width: 984px;
         height: 1500px;
         margin:  auto;
-        padding-top:70px;
+        padding-top:20px;
         text-align: center;
       }
       .button{
         transition: 0.2s;
-        width: 150px;
+        width: 60%;
         border-radius:10px;
         height: 50px;
         margin-top: 15px;
@@ -59,23 +59,28 @@ if ($_SESSION[login])
       .button:hover{
         transition: 0.2s;
         cursor: pointer;
+        transform: scale(1.1);
         box-shadow: 0 0px 13px 6px rgb(53, 41, 119);
-        background: #b8b8b8;
         color: black;
       }
       #menu-content{
-        margin-top: 100px;
+      }
+
+      .white-text{ color: white;}
+
+      h1 {
+        margin-top: 50px;
+        text-align: center;
+        font-family: Arial;
       }
     </style>
   </head>
   
   <body>
-    <div id="mainp">
-      <img id="no" src="img/no-circle.png">
-    </div>
+   <h1 class="white-text">CAMAGRU</h1>
     <div id="menu">
       <div id="menu-content">
-    <p>Take the better selfie</p>
+    <p class="white-text">Take the better selfie</p>
     <button class="button" type="button" name="button" onclick="location.href='login.php'"><span>Log in</span></button>
     <br>
     <button style="margin-right:4px"class="button" type="button" name="button" onclick="location.href='signup.php'"><span>Register</span></button>

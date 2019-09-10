@@ -105,7 +105,7 @@ $data = $_POST;
              //register
              $reqest = "INSERT INTO `users` (`username`, `email`, `password`) VALUES ('$username', '$email', '$password');";
              $pdo->prepare($reqest)->execute();
-             mail($email, 'Camagru', 'for register come here ! => http://127.0.0.1:8888/Main/aftermail.php', 'From : admin@camag.com');
+             mail($email, 'Camagru', 'for register come here ! => http://localhost:3306/aftermail.php', 'From : admin@camag.com');
                echo "Email with instruction was sent to your email";
                header("refresh:10;index.php");
                exit;

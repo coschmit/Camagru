@@ -47,9 +47,19 @@ try
     body{
       text-align: center;
     }
-    button{
-      background-color: red;
-    }
+    #delbutton{
+		transition: all 0.2s ease-out;
+		position: relative;
+		margin: 20px 0;
+		border-radius: 5px;
+		width: 100px;
+		height: 30px;
+	}
+	#delbutton:hover{
+		cursor:pointer;
+		background-color: #ff503d;
+		transform: scale(1.1);
+	}
     #comment_input
     {
 		border-radius:40px;

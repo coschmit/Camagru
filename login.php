@@ -57,6 +57,10 @@
           position: relative;
           bottom: -50px;
           color:white;
+          transition: all 0.5s ease-out;
+        }
+        #forget:hover{
+          color: #6100b0;
         }
         H1 {
     display: inline-block;
@@ -162,7 +166,7 @@
         $username = $data['username'];
         $password = $data['password'];
         $password = hash('whirlpool', $password);
-        $account = $pdo->query('SELECT username FROM users');
+        $account = $pdo->query('SELECT `username` FROM `users`');
         if ((checkUSERNAME($account, $username) == false) || $username == '') {
           $errors[] = "Username entered wrong";
         }

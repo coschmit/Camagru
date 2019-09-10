@@ -1,7 +1,7 @@
 <?php
 try
  {
-  $pdo = new PDO('mysql:host=127.0.0.1;dbname=db_camagru;charset=utf8', 'root', 'pass1234');
+  $pdo = new PDO('mysql:host=localhost:3306;dbname=camagru;charset=utf8', 'root', 'pass1234');
   $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
  }
  catch(PDOException $e)
@@ -9,17 +9,17 @@ try
   die($e->getMessage());
  }
 
-function auth($login, $pass1234wd)
+function auth($login, $passwd)
 {
 
-  if (!$login || !$pass1234wd)
+  if (!$login || !$passwd)
   {
     return false;
   }
-  $account = $pdo->query('SELECT username, pass1234word FROM users');
+  $account = $pdo->query('SELECT username, password FROM users');
 
     while ($users = $account->fetch()) {
-      if ($users['pass1234word'] == $pass1234wd && $users['username'] == $login) {
+      if ($users['password'] == $passwd && $users['username'] == $login) {
         return true;
       }
     }

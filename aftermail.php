@@ -72,9 +72,9 @@
           <input type="text" name="username"  id="username" required>
           <br>
 
-          <label for="pass1234word">Password</label>
+          <label for="password">Password</label>
           <br>
-          <input type="pass1234word" name="pass1234word" id="pass1234word" required >
+          <input type="password" name="password" id="password" required >
 
           <button id="button" type="submit" name="submit" >Create Account</button>
       <div id="error">
@@ -93,10 +93,10 @@
            }
           //
 
-          function checkPASSWORD($account, $pass1234word)
+          function checkPASSWORD($account, $password)
           {
             while ($users = $account->fetch()) {
-              if ($users['pass1234word'] == $pass1234word) {
+              if ($users['password'] == $password) {
                 return true;
               }
             }
@@ -117,18 +117,18 @@
         if (isset($data['submit'])) {
           $username = $data['username'];
 
-          $pass1234word = $data['pass1234word'];
+          $password = $data['password'];
 
-          $pass1234word = hash('md5', $pass1234word);
+          $password = hash('whirlpool', $password);
 
           $account = $pdo->query('SELECT username FROM users');
           if ((checkUSERNAME($account, $username) == false) || $username == '') {
             $errors[] = "Username entered wrong";
           }
 
-          $account = $pdo->query('SELECT pass1234word FROM users');
-          if ((checkPASSWORD($account, $pass1234word) == false) || $pass1234word == '') {
-            $errors[] = "pass1234word entered wrong";
+          $account = $pdo->query('SELECT password FROM users');
+          if ((checkPASSWORD($account, $password) == false) || $password == '') {
+            $errors[] = "password entered wrong";
           }
 
 

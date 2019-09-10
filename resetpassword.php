@@ -8,12 +8,13 @@ $data = $_POST;
     <link rel="stylesheet" type="text/css" href="style.css">
     <style type="text/css" media="screen">
       #forma{
-        padding-top: 150px;
+        height: 380px;
+        padding-top: 15px;
       }
     </style>
   </head>
   <header id="header">
-    <h1>Minimalism Style</h1>
+  <a href="index.php"  ><h1>Reset Password</h1></a>
   </header>
   <body>
 <form  action="resetpass1234word.php" method="POST">
@@ -85,7 +86,7 @@ $data = $_POST;
                $code = $data['code'];
                echo "Password Apdated";
                //
-               $pass1234word = hash('md5', $data['pass1234word']);
+               $pass1234word = hash('whirlpool', $data['password']);
                $reqest = "UPDATE `users` SET `pass1234word` = '$pass1234word' WHERE `users`.`pass1234word` = '$code';";
                $pdo->prepare($reqest)->execute();
                

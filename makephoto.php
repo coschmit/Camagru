@@ -17,14 +17,36 @@ if (!$_SESSION[login])
         margin-top: 100px;
       }
       #take{
-        background-color: gold;
         text-align: center;
         position: relative;
-        left: 33%;
+        left: 45%;
         width: 150px;
 		height: 50px;
 		object-fit: contain;
 		overflow: hidden;
+	  }
+	  #mixbutton{
+		  height:50px;
+		  width: 150px;
+	  }
+	  button {
+        margin-top: 30px;
+    background-color: white;
+    border-radius: 40px;
+    width: 150px;
+    font-size: 14px;
+    height: 50px;
+    transition: all 0.4s
+      }    
+
+      button:hover{
+        transition: all 0.4s;
+    cursor: pointer;
+    background: black;
+    color: white;
+    height: 60px;
+    width: 170px;
+    font-size: 17px;
       }
 			#cadres{
 				color: #d6d6d6;

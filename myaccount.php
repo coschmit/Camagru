@@ -53,7 +53,7 @@ if (!$_SESSION[login])
        <form  action="myaccount.php" method="POST">
        <p style="color: white;">username:  <?php echo $login;?></p>
        <p style="color: white;">email:  <?php echo $mail;?></p>
-         <p style="color: white;">new email: <input type="text" name="newemail" style="color: white;" value=""></p>
+         <p style="color: white;">new email: <input type="text" name="newemail" style="color: white;border-radius: 5px;" value=""></p>
        <button type="submit" name="change">Change</button>
      </form>
      <?php
