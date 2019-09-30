@@ -1,5 +1,6 @@
 <?php
 $data = $_POST;
+session_start();
 
  ?>
 <!DOCTYPE html>
@@ -17,25 +18,25 @@ $data = $_POST;
   <a href="index.php"  ><h1>Reset Password</h1></a>
   </header>
   <body>
-<form  action="resetpass1234word.php" method="POST">
+<form  action="resetpassword.php" method="POST">
 
     <div id="forma">
-      <label for="pass1234word">SECURITY CODE</label>
+      <label for="password">SECURITY CODE</label>
       <br>
       <input type="text" name="code" id="code" required placeholder="insert code">
       <br>
-      <label for="pass1234word">NEW Password</label>
+      <label for="password">NEW Password</label>
       <br>
-      <input type="pass1234word" name="pass1234word" id="pass1234word" required placeholder="must be strong">
+      <input type="password" name="password" id="password" required placeholder="must be strong">
       <br>
-      <label for="re-pass1234word">Confirm Password</label>
+      <label for="re-password">Confirm Password</label>
       <br>
-      <input type="pass1234word" name="re_pass1234word" id="re_pass1234word" required placeholder="must be strong">
+      <input type="password" name="re_password" id="re_password" required placeholder="must be strong">
       <br>
       <button id="Create-acc" type="submit" name="submit" >Reset Password</button>
       <div id="errorMessage">
         <?php
-          session_start();
+          
           //check pass1234
           function ValidPassword($value)
           {
@@ -46,7 +47,7 @@ $data = $_POST;
           function checkCODE($account, $code)
           {
             while ($users = $account->fetch()) {
-              if ($users['pass1234word'] == $code) {
+              if ($users['password'] == $code) {
                 return true;
               }
             }
@@ -68,16 +69,16 @@ $data = $_POST;
 
             $errors = array();
            if (isset($data['submit'])) {
-             if (($data['re_pass1234word'] != $data['pass1234word'])) {
+             if (($data['re_password'] != $data['password'])) {
                 $errors[] = "Password doesnt match";
              }
-             if (!ValidPassword($data['pass1234word'])) {
+             if (!ValidPassword($data['password'])) {
                 $errors[] = "Password is not valid";
                 $errors[] = "Use at least 6 characters";
                 $errors[] = "With 1 lower, 1 uppercase and 1 number!";
              }
 
-             $account = $pdo->query('SELECT pass1234word FROM users');
+             $account = $pdo->query('SELECT password FROM users');
              if (!checkCODE($account, $data['code'])) {
                $errors[] = "Wrong Security Code";
              }
@@ -86,11 +87,11 @@ $data = $_POST;
                $code = $data['code'];
                echo "Password Apdated";
                //
-               $pass1234word = hash('whirlpool', $data['password']);
-               $reqest = "UPDATE `users` SET `pass1234word` = '$pass1234word' WHERE `users`.`pass1234word` = '$code';";
+               $password = hash('whirlpool', $data['password']);
+               $reqest = "UPDATE `users` SET `password` = '$password' WHERE `users`.`password` = '$code';";
                $pdo->prepare($reqest)->execute();
                
-               header("Location: login.php");
+               echo "<script>setTimeout(function(){document.location.href='login.php';},5000)</script>"; 
                exit();
 
              }

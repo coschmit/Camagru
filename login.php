@@ -1,4 +1,6 @@
-<?php $data = $_POST; ?>
+<?php $data = $_POST;
+session_start();
+?>
   <!DOCTYPE html>
   <html>
     <head>
@@ -121,7 +123,7 @@
         <a id="forget" href="forgetpassword.php">Forget Password?</a>
     <div id="error">
       <?php
- session_start();
+ 
         //conect to database
         try
          {
@@ -181,7 +183,7 @@
         if (empty($errors)) {
            echo "all good";
           $_SESSION[login] = $username;
-          header("Location: main.php");
+          echo "<script>document.location.href='main.php'</script>"; 
           exit;
         }
         else

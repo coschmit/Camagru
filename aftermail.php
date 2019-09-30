@@ -1,4 +1,6 @@
-<?php   $data = $_POST; ?>
+<?php   $data = $_POST; 
+  session_start();
+?>
 <!DOCTYPE html>
   <head>
     <meta charset="utf-8">
@@ -6,61 +8,104 @@
 
     <style type="text/css" media="screen">
       body{
-        font-family: helvetica, sans-serif;
-        font-size: 150%;
-      }
-      input{
-        height: 25px;
-        padding: 5px;
-        font-size: 25px;
-        border-color: black;
-        margin-top: 15px;
-        margin-bottom: 15px;
-      }
-      label{
+          font-family: helvetica, sans-serif;
+          font-size: 150%;
+          background-color: rgb(24, 24, 24);
+        }
+        input{
+          height: 25px;
+              padding: 15px;
+              text-align: center;
+              font-size: 25px;
+              border-color: black;
+              margin-top: 5px;
+              border-radius: 15px;
+        }
+        label{
+        }
+        #forma{
+          background-color: rgb(34, 35, 49);
+    padding-top: 20px;
+    width: 450px;
+    height: 400px;
+    border: 1px white solid;
+    margin: 0 auto;
+    text-align: center;
+    color: white;
+    transition: all 0.5s;
+    border-radius: 15px;
+        }
 
-      }
-      #forma{
-        width: 500px;
-        height: 500px;
-
-        margin: 0 auto;
-        text-align: center;
-      }
-      #content{
-        margin-top: 125px;
-      }
-      #header{
-        text-align: center;
-      }
-      #button{
-        font-size: 150%;
-        background-color: gold;
-        margin-top: 50px;
-      }
-      #error{
-        color: red;
-        margin-top: 15px;
-      }
-      H1 {
-  display: inline-block;
-  position: relative;
-  letter-spacing: .05em;
-  font-size: 50px;
-  cursor: pointer;
-  color: white;
-  transition: all 1s;
-  }
-
-
-  H1:hover {
-    color: Gold;
+        #forma:hover{
+    box-shadow: 0 5px 15px 9px rgb(53, 41, 119);
     }
+        #content{
+          margin-top: 125px;
+        }
+        #error{
+          color: red;
+          margin-top: 55px;
+        }
+        #header{
+          text-align: center;
+        }
+        #button{
+          font-size: 150%;
+          background-color: gold;
+          margin-top: 50px;
+        }
+        #forget{
+          position: relative;
+          bottom: -50px;
+          color:white;
+          transition: all 0.5s ease-out;
+        }
+        #forget:hover{
+          color: #6100b0;
+        }
+        H1 {
+    display: inline-block;
+    position: relative;
+    letter-spacing: .05em;
+    font-size: 50px;
+    cursor: pointer;
+    color: white;
+    transition: all 1s;
+    }
+    H1:hover {
+      color: rgb(53, 41, 119);
+      }
+      input:focus {
+      outline-color : blue ;
+      outline-width: 7px;
+}
+
+      #button {
+    margin: 30px auto 0;
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    border-radius: 40px;
+    width: 150px;
+    font-size: 14px;
+    height: 50px;
+    transition: all 0.4s
+      }    
+
+      #button:hover{
+        transition: all 0.4s;
+    cursor: pointer;
+    background: black;
+    color: white;
+    height: 60px;
+    width: 170px;
+    font-size: 17px;
+      }
 
     </style>
   </head>
   <header id="header">
-    <h1>Minimalism Style</h1>
+  <a href="index.php"><h1 > Mail Validation</h1></a>
   </header>
   <body>
     <form  action="aftermail.php" method="POST">
@@ -79,7 +124,6 @@
           <button id="button" type="submit" name="submit" >Create Account</button>
       <div id="error">
         <?php
-        session_start();
 
           //conect to database
           try
@@ -137,8 +181,8 @@
             echo "Registration finished";
              $reqest = "UPDATE `users` SET `valid` = '1' WHERE `users`.`username` = '$username';";
              $pdo->prepare($reqest)->execute();
-           header("refresh:3;index.php");
-            exit;
+             echo "<script>setTimeout(function(){document.location.href='resetpassword.php';},3000)</script>"; 
+             exit;
           }
           else
           { $i = 0;

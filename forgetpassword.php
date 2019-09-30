@@ -1,4 +1,5 @@
-<?php $data = $_POST; ?>
+<?php $data = $_POST; 
+  session_start();?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -112,7 +113,6 @@
           <button id="button" type="submit" name="submit" >Reset password</button>
           <div id="errorMessage">
             <?php
-              session_start();
 
 
             //conect to database
@@ -169,9 +169,9 @@
                  mail($email, 'Camagru', 'For reseting password CLICK HERE! => http://localhost:3306/resetpassword.php
                  Use This code:'.$string, 'From : admin@camag.com');
                 //  mail($email, 'Camagru', 'for register come here ! => http://127.0.0.1:8888/Main/aftermail.php', 'From : admin@camag.com');
-                  echo "<br>You will be redirected to another page in 10 seconds";
-                  header("refresh:10;resetpassword.php");
-                 //exit;
+                  echo "<br>You will be redirected to another page in 5 seconds";
+                  echo "<script>setTimeout(function(){document.location.href='resetpassword.php';},5000)</script>"; 
+                  //exit;
                }
                else
                { $i = 0;
