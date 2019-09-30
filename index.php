@@ -68,7 +68,7 @@ if ($_SESSION[login])
 
       .white-text{ color: white;}
 
-.title{
+.container{
   display:flex;
   justify-content:center;
 }
@@ -78,7 +78,7 @@ if ($_SESSION[login])
         justify-content: center;
         cursor: default;
         margin-top: 50px;
-        border-radius:5px;
+        border-radius:25px;
         padding: 5px 10px;
         letter-spacing: 5px;
         text-align: center;
@@ -93,9 +93,10 @@ if ($_SESSION[login])
   </head>
   
   <body>
-  <div class="title">
+  <div class="container">
    <h1 class="white-text">CAMAGRU</h1>
    </div>
+   <div class="container">
     <div id="menu">
       <div id="menu-content">
     <p class="white-text">Take the better selfie</p>
@@ -103,6 +104,7 @@ if ($_SESSION[login])
     <br>
     <button style="margin-right:4px"class="button" type="button" name="button" onclick="location.href='signup.php'"><span>Register</span></button>
       </div>
+    </div>
     </div>
   </body>
 </html>
