@@ -68,16 +68,34 @@ if ($_SESSION[login])
 
       .white-text{ color: white;}
 
+.title{
+  display:flex;
+  justify-content:center;
+}
       h1 {
+        display:flex;
+        position:relative;
+        justify-content: center;
+        cursor: default;
         margin-top: 50px;
+        border-radius:5px;
+        padding: 5px 10px;
+        letter-spacing: 5px;
         text-align: center;
-        font-family: Arial;
+        font-family: serif;
+        transition: .75s ;
+      }
+      h1:hover {
+        color:black;
+        background-color: white;
       }
     </style>
   </head>
   
   <body>
+  <div class="title">
    <h1 class="white-text">CAMAGRU</h1>
+   </div>
     <div id="menu">
       <div id="menu-content">
     <p class="white-text">Take the better selfie</p>

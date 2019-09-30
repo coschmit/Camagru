@@ -63,7 +63,7 @@
         #forget:hover{
           color: #6100b0;
         }
-        H1 {
+        h1 {
     display: inline-block;
     position: relative;
     letter-spacing: .05em;
